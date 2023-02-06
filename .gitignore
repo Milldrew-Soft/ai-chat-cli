@@ -1,3 +1,4 @@
 boilerplate/
 *node_modules*
 
+dist/
