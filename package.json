@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "User story: The chat cli will use a hidden directory named .chat The .chat will include a file named prompt.txt and a directory named responses.",
-  "main": "index.js",
+  "main": "./dist/chat-app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,5 +22,8 @@
     "@types/node": "^18.11.19",
     "nodemon": "^2.0.20",
     "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "chokidar": "^3.5.3"
   }
 }
