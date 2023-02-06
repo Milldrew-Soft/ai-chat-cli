@@ -32,3 +32,14 @@ Stage 2.
 ────────
 1. Figure out which api to use and iterate over the api to find the best response
 2. Create a function that will make a request to the openai api
+=========================================
+Code
+=========================================
+• Create a function that checks if a directory exists and then creates it if it doesn't
+• Create a function that checks if a file exists and then creates it if it doesn't
+• Create a function that starts a file watcher on a file
+
+
+
+
+
