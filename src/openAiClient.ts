@@ -17,7 +17,7 @@ export async function openAiClient() {
       model: "text-davinci-003",
       prompt: PROMPT,
       temperature: 0,
-      max_tokens: 4000,
+      max_tokens: 1500,
       stop: ["{}"],
     }),
     headers: {
