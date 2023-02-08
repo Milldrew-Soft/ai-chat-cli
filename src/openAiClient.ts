@@ -1,18 +1,17 @@
 const OPEN_AI_KEY = process.env.OPEN_AI_KEY;
-console.log(OPEN_AI_KEY);
 if (!OPEN_AI_KEY) {
   throw new Error("OPEN_AI_KEY is not defined");
 }
 import fs from "fs";
 import { PROMPT_FILE } from "./chat-app.js";
 import fetch, { Response } from "node-fetch";
-export function openAiClient() {
+export async function openAiClient() {
   const PROMPT = readPrompt();
   console.log("==========");
   console.log(`Prompting opeanai api...`);
   console.log(`PROMPT: ${PROMPT}`);
   console.log("==========");
-  fetch("https://api.openai.com/v1/completions", {
+  return await fetch("https://api.openai.com/v1/completions", {
     method: "POST",
     body: JSON.stringify({
       model: "text-davinci-003",
@@ -30,12 +29,16 @@ export function openAiClient() {
     const data = JSON.parse(text);
     console.log(`Open AI response:`);
     console.log("==========");
+    let actualResponse;
     try {
-      console.log(data.choices[0].text);
+      actualResponse = data.choices[0].text;
+      console.log(actualResponse);
     } catch (error) {
+      actualResponse = data;
       console.error(data);
     }
     console.log("==========");
+    return actualResponse;
   });
 }
 function readPrompt() {
