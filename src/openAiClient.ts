@@ -8,7 +8,7 @@ import fetch, { Response } from "node-fetch";
 export async function openAiClient() {
   const PROMPT = readPrompt();
   console.log("==========");
-  console.log(`Prompting opeanai api...`);
+  console.log(`Prompting open ai api...`);
   console.log(`PROMPT: ${PROMPT}`);
   console.log("==========");
   return await fetch("https://api.openai.com/v1/completions", {
