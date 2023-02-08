@@ -15,4 +15,4 @@ checkDirectory(CHAT_DIR);
 checkDirectory(HISTORY_DIR);
 checkFile(PROMPT_FILE);
 watchFileChange(PROMPT_FILE, openAiClient);
-console.log("HELLO FROM CHAT-APP.JS");
+console.log(`Watching for changes ${PROMPT_FILE}...`);

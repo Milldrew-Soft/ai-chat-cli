@@ -5,7 +5,9 @@
   "description": "User story: The chat cli will use a hidden directory named .chat The .chat will include a file named prompt.txt and a directory named responses.",
   "main": "./dist/chat-app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --watch src --exec \"ts-node-esm\" src/chat-app.ts",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -20,10 +22,13 @@
   "homepage": "https://github.com/Milldrew-Soft/ai-chat-cli#readme",
   "devDependencies": {
     "@types/node": "^18.11.19",
+    "@types/node-fetch": "^2.6.2",
     "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "chokidar": "^3.5.3"
+    "chokidar": "^3.5.3",
+    "node-fetch": "^3.3.0"
   }
 }
