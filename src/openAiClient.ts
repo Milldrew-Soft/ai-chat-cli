@@ -33,7 +33,6 @@ export async function openAiClient() {
     const response: any = await res.json();
     const gptResponseMessage: Message = response.choices[0].message;
     messages.push(gptResponseMessage);
-    console.log({ messages });
     console.log(`Open AI response:`);
     console.log("==========");
     try {
