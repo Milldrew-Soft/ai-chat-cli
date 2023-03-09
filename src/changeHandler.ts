@@ -7,8 +7,14 @@ export async function changeHandler() {
 }
 
 function writeResponse(response: string) {
-  const historyLog = `${HISTORY_DIR}/${Date().replace(/\s/g, "-")}.txt`;
-  const latestResponseFile = `${CHAT_DIR}/latest-response.txt`;
-  fs.writeFileSync(latestResponseFile, response);
-  fs.writeFileSync(historyLog, response);
+  response = response.toString();
+  const responseIsString = typeof response === "string";
+  if (responseIsString) {
+    const historyLog = `${HISTORY_DIR}/${Date().replace(/\s/g, "-")}.txt`;
+    const latestResponseFile = `${CHAT_DIR}/latest-response.txt`;
+    fs.writeFileSync(latestResponseFile, response);
+    fs.writeFileSync(historyLog, response);
+  } else {
+    throw new Error("Response is not a string");
+  }
 }

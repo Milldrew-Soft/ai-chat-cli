@@ -34,8 +34,10 @@ export async function openAiClient() {
       actualResponse = data.choices[0].text;
       console.log(actualResponse);
     } catch (error) {
-      actualResponse = data;
-      console.error(data);
+      console.log(error);
+      let errorResponse = data;
+      console.error({ errorResponse });
+      throw new Error(errorResponse.error.message);
     }
     console.log("==========");
     return actualResponse;
