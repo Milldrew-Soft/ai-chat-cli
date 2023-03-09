@@ -3,10 +3,15 @@ import { CHAT_DIR, HISTORY_DIR } from "./chat-app.js";
 import { openAiClient } from "./openAiClient.js";
 export async function changeHandler() {
   const response = await openAiClient();
-  writeResponse(response);
+  if (typeof response === "string") {
+    writeResponse(response);
+  } else {
+    throw new Error("Response is not a string");
+  }
 }
 
 function writeResponse(response: string) {
+  console.log(response);
   response = response.toString();
   const responseIsString = typeof response === "string";
   if (responseIsString) {
