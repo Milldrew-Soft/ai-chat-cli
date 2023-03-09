@@ -11,7 +11,6 @@ export async function changeHandler() {
 }
 
 function writeResponse(response: string) {
-  console.log(response);
   response = response.toString();
   const responseIsString = typeof response === "string";
   if (responseIsString) {
