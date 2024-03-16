@@ -8,11 +8,11 @@ if (!OPEN_AI_KEY) {
   throw new Error("OPEN_AI_KEY is not defined");
 }
 import fs from "fs";
-import { PROMPT_FILE } from "./chat-app.js";
-import fetch, { Response } from "node-fetch";
+import {PROMPT_FILE} from "./chat-app.js";
+import fetch, {Response} from "node-fetch";
 export async function openAiClient() {
   const PROMPT = readPrompt();
-  const message: Message = { role: "user", content: PROMPT }; // this is the message from the user
+  const message: Message = {role: "user", content: PROMPT}; // this is the message from the user
   messages.push(message);
   console.log("==========");
   console.log(`Prompting open ai api...`);
@@ -21,7 +21,7 @@ export async function openAiClient() {
   return await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     body: JSON.stringify({
-      model: "gpt-3.5-turbo-0301",
+      model: "gpt-4-turbo-preview",
       messages,
     }),
     headers: {
@@ -31,7 +31,15 @@ export async function openAiClient() {
   }).then(async (res: Response) => {
     let actualResponse;
     const response: any = await res.json();
-    const gptResponseMessage: Message = response.choices[0].message;
+    //log yellow text
+    let gptResponseMessage: Message;
+    try {
+      gptResponseMessage = response.choices[0].message;
+    } catch (error) {
+      console.log("\x1b[33m%s\x1b[0m", "Open AI response:" + JSON.stringify(response));
+      console.error(error);
+      return "error";
+    }
     messages.push(gptResponseMessage);
     console.log(`Open AI response:`);
     console.log("==========");
