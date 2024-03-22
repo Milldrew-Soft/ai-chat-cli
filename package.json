@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "chokidar": "^3.5.3",
-    "node-fetch": "^3.3.0"
+    "node-fetch": "^3.3.0",
+    "vscode-css-languageservice": "^6.2.11"
   }
 }

@@ -1,12 +1,14 @@
 import fs from "fs";
-import { CHAT_DIR, HISTORY_DIR } from "./chat-app.js";
-import { openAiClient } from "./openAiClient.js";
+import {CHAT_DIR, HISTORY_DIR} from "./chat-app.js";
+import {openAiClient} from "./openAiClient.js";
 export async function changeHandler() {
   const response = await openAiClient();
+  console.log("Response: ", response)
   if (typeof response === "string") {
     writeResponse(response);
   } else {
-    throw new Error("Response is not a string");
+    console.error(`Response is not a string: ${response} `);
+    // throw new Error("Response is not a string");
   }
 }
 
