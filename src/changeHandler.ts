@@ -3,7 +3,6 @@ import {CHAT_DIR, HISTORY_DIR} from "./chat-app.js";
 import {openAiClient} from "./openAiClient.js";
 export async function changeHandler() {
   const response = await openAiClient();
-  console.log("Response: ", response)
   if (typeof response === "string") {
     writeResponse(response);
   } else {
