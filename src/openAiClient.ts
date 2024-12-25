@@ -21,7 +21,9 @@ export async function openAiClient() {
   return await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     body: JSON.stringify({
-      model: "gpt-4-turbo-preview",
+      // model: "gpt-3.5-turbo",
+      model: "gpt-4o",
+      // model: "gpt-4-turbo",
       messages,
     }),
     headers: {

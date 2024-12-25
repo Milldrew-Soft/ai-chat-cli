@@ -2,3 +2,5 @@ boilerplate/
 *node_modules*
 
 dist/
+PENTEST+
+nvimlog
